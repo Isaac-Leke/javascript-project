@@ -54,6 +54,9 @@
 // displayData();
 
 
+// get button element into variable
+const showBtn = document.getElementById("show");
+const hideBtn = document.getElementById("hide");
 
 
 // FUNCTION TO FECH USER DATA
@@ -64,19 +67,25 @@ async function fetchUserData() {
     }
     return response.json();
 }
+// function to hide data displayed on html
+function hideData() {
+    const user_List = document.getElementById("user-list");
+    user_List.style.display = "none";
+}
 
 // function to display data in the html
 
 async function displayUserData() {
     const userList = document.getElementById('user-list');
+    
     try {
-        const users = await fetchUserDat();
+        const users = await fetchUserData();
         const listItems = users.map(user => `<li>${user.name} - ${user.email}</li>`);
         userList.innerHTML = listItems;
+
+        
     } catch (error) {
         console.log('error fetching data:', error);
         userList.innerHTML = "<li> Error Fetching Data. please try again later.</li>";
     };
 }
-
-displayUserData();

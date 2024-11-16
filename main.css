@@ -29,3 +29,14 @@ h1 {
 #user-list li:hover{
     background: #e7f1ff;
 }
+
+button {
+    margin: auto auto;
+    width: 170px;
+    padding: 10px 10px;
+    text-transform: uppercase;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+}
